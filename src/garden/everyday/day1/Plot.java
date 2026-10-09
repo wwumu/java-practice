@@ -1,18 +1,11 @@
-package garden;
+package garden.everyday.day1;
 
 import java.util.Objects;
 
-/**
- * 一块菜地（例如 A-01，12 平方米，土壤为壤土）。
- *
- * <p><b>重点看 equals 和 hashCode 这两个方法。</b>
- * 当对象要作为 {@link java.util.HashMap} 的“键”时，这两个方法决定了
- * “两个对象算不算同一把钥匙”。如果只写 equals 不写 hashCode，
- * HashMap 会找不到你已经放进去的数据 —— 这是初学者最常踩的坑。
- */
+
 public class Plot {
 
-    /** 地块编号，业务上唯一，例如 A-01 */
+    //地块编号
     private final String code;
     /** 面积（平方米） */
     private final double area;

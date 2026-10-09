@@ -41,3 +41,5 @@ Thumbs.db
 application-local.yml
 application-local.properties
 *.env
+
+src/garden/aicode/
