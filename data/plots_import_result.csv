@@ -1,0 +1,5 @@
+lineNo,result,plotCode,message
+2,OK,A-01,导入成功
+3,OK,A-02,导入成功
+6,FAIL,A-03,面积为空
+9,FAIL,,地块编号为空
