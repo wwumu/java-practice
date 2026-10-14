@@ -34,6 +34,9 @@ public class Excutor {
                                 int n = num.incrementAndGet();
                                 //模拟线程所需时间
                                 Thread.sleep(1000);
+                                if (code.indexOf(c)>3){
+                                    throw new RuntimeException("模拟线程抛出异常");
+                                }
                                 System.out.println("地块载入成功，地块名：" + c + "线程编号：" + Thread.currentThread().getName() + "这是第" + n + "个线程");
                                 return c + "校验通过";
                             }
@@ -46,6 +49,14 @@ public class Excutor {
             e.shutdown();
             boolean isshutdow=e.awaitTermination(5, TimeUnit.SECONDS);
             System.out.println("线程是否以关闭："+isshutdow);
+        }
+        for (Future f : futures){
+            try {
+                f.get();
+                System.out.println("任务"+futures.indexOf(f)+"成功");
+            } catch (ExecutionException ex) {
+                System.out.println("任务"+futures.indexOf(f)+"失败-"+ex.getCause().getClass().getSimpleName()+ex.getCause().getMessage());
+            }
         }
         System.out.println("共执行了"+futures.size()+"个任务");
     }
